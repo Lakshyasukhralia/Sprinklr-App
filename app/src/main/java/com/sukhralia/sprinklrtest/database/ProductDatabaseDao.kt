@@ -25,13 +25,13 @@ interface ProductDatabaseDao {
     @Query("DELETE FROM product_table")
     fun clear()
 
-    @Query("SELECT * FROM product_table ORDER BY id DESC")
+    @Query("SELECT * FROM product_table ORDER BY id ASC")
     fun getAllProducts() : List<ProductModel>
 
-    @Query("SELECT * FROM product_table WHERE category = :category ORDER BY id DESC")
+    @Query("SELECT * FROM product_table WHERE category = :category ORDER BY id ASC")
     fun getAllProductsByCategory(category: String) : List<ProductModel>
 
-    @Query("SELECT * FROM product_table WHERE isBookmarked = :bookmark  ORDER BY id DESC")
+    @Query("SELECT * FROM product_table WHERE isBookmarked = :bookmark  ORDER BY id ASC")
     fun getAllProductsByBookmark(bookmark: Boolean) : List<ProductModel>
 
     @Query("SELECT * FROM product_table ORDER BY id DESC LIMIT 1")
