@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Sprinklr Test</string>
+    <string name="founder_info">%1$s, %2$s</string>
+
+    <string-array name="category">
+        <item>All</item>
+        <item>Trending</item>
+        <item>Medical Technology</item>
+        <item>Machine Learning</item>
+        <item>Ed Tech</item>
+        <item>Bookmarked</item>
+    </string-array>
+</resources>
