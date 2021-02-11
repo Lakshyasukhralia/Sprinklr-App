@@ -36,7 +36,7 @@ class ProductViewModel(val database: ProductDatabaseDao, application: Applicatio
             database.clear()
             try {
                 val result = database.insertAll(productModelList)
-//                databaseResponse.value = ResponseState.Success(productModelList)
+                fetchAllProducts(ALL)
             } catch (t: Throwable) {
                 databaseResponse.value = ResponseState.Error(t.toString())
             }
@@ -60,7 +60,7 @@ class ProductViewModel(val database: ProductDatabaseDao, application: Applicatio
     fun fetchAllProducts(category : String) {
         viewModelScope.launch(Dispatchers.IO) {
             databaseResponse.value = ResponseState.Loading
-            delay(3000)
+            delay(1000)
             var result : List<ProductModel>? = null
             try {
 

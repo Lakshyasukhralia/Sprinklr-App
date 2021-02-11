@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "product_table")
 data class ProductModel(
     @PrimaryKey(autoGenerate = true)
-    var id : Long = 0,
+    var id: Long = 0,
     @ColumnInfo(name = "name")
     var name: String = "",
     @ColumnInfo(name = "category")
@@ -16,11 +16,15 @@ data class ProductModel(
     @ColumnInfo(name = "description")
     var description: String = "",
     @Embedded(prefix = "home_")
-    var founder: FounderModel = FounderModel("",""),
+    var founder: FounderModel = FounderModel("", ""),
     @ColumnInfo(name = "upvotes")
     var upvotes: Long = 0,
     @ColumnInfo(name = "isBookmarked")
-    var isBookmarked: Boolean = false
+    var isBookmarked: Boolean = false,
+    @ColumnInfo(name = "url")
+    var url: String = "https://en.wikipedia.org/wiki/Wikipedia",
+    @ColumnInfo(name = "isUpvoted")
+    var isUpvoted: Boolean = false
 )
 
 data class FounderModel(

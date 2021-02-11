@@ -4,5 +4,6 @@ import com.sukhralia.sprinklrtest.model.ProductModel
 
 interface ProductListener {
     fun updateProduct(product : ProductModel)
+    fun share(url : String)
 
 }

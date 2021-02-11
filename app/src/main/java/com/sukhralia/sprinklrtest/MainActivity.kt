@@ -1,5 +1,6 @@
 package com.sukhralia.sprinklrtest
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -248,10 +249,25 @@ class MainActivity : AppCompatActivity(), ProductListener, AdapterView.OnItemSel
         val mActivity = this
         lifecycleScope.launch {
             withContext(Dispatchers.Main) {
-                selectedCategory = AppDataStore.instance(mActivity).readPreferences("selected_category") ?: ALL
+                selectedCategory =
+                    AppDataStore.instance(mActivity).readPreferences("selected_category") ?: ALL
                 setFilter(R.array.category, binding.filter)
                 viewModel.fetchAllProducts(selectedCategory)
             }
         }
+    }
+
+    override fun share(url: String) {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(
+                Intent.EXTRA_TEXT,
+                String.format(resources.getString(R.string.share_text), url)
+            )
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
     }
 }

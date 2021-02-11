@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Sprinklr Test</string>
     <string name="founder_info">%1$s, %2$s</string>
+    <string name="share_text">Check out this exciting product:\n%1$s</string>
+    <string name="upvote_fail">Already Upvoted</string>
 
     <string-array name="category">
         <item>All</item>
